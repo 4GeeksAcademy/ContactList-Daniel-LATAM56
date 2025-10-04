@@ -1,0 +1,182 @@
+:root{
+  --bg: #f6f8fa;
+  --card-bg: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #0d6efd;   /* Alineado con Bootstrap */
+  --danger:  #dc3545;   /* Alineado con Bootstrap */
+  --radius:  16px;
+  --shadow:  0 8px 24px rgba(2, 8, 20, .06);
+  --shadow-lg: 0 14px 40px rgba(2, 8, 20, .10);
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+html, body, #root{
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   Tipografía y espaciados
+================================ */
+h1, h2, h3, h4, h5{
+  letter-spacing: .2px;
+}
+
+h2{
+  font-weight: 700;
+}
+
+p.text-muted,
+.small,
+.muted{
+  color: var(--muted) !important;
+}
+
+.container{
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+/* ================================
+   Enlaces y botones
+================================ */
+a{
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover{ text-decoration: underline; }
+
+.btn{
+  border-radius: 12px !important;
+  transition: transform .08s ease, box-shadow .2s ease;
+}
+.btn:active{
+  transform: translateY(1px);
+}
+
+.btn-primary{
+  box-shadow: 0 6px 18px rgba(13,110,253,.16);
+}
+.btn-danger{
+  box-shadow: 0 6px 18px rgba(220,53,69,.14);
+}
+.btn-outline-primary, .btn-outline-danger, .btn-outline-secondary{
+  border-width: 2px;
+}
+
+/* ================================
+   Cards de contactos
+================================ */
+.card{
+  border: 0 !important;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow .25s ease, transform .12s ease;
+}
+.card:hover{
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card-title{
+  font-weight: 700;
+}
+
+.card img.rounded-circle{
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px rgba(2,8,20,.08);
+}
+
+/* Lista de detalles dentro de la tarjeta */
+.card .list-unstyled{
+  margin: 0;
+}
+.card .list-unstyled li{
+  padding: 2px 0;
+  color: #1f2937;
+}
+.card .list-unstyled strong{
+  color: var(--muted);
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* ================================
+   Formularios (Add/Edit)
+================================ */
+.form-label{
+  font-weight: 600;
+  color: #111827;
+}
+
+.form-control{
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  padding: .65rem .85rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-control:focus{
+  border-color: rgba(13,110,253,.6);
+  box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* ================================
+   Utilidades
+================================ */
+.shadow-sm{ box-shadow: var(--shadow) !important; }
+.rounded-3{ border-radius: var(--radius) !important; }
+
+/* Separación superior en headers de páginas */
+.page-header{
+  margin-bottom: 1rem;
+}
+
+/* ================================
+   Modal de confirmación (DeleteModal)
+   (Nuestro componente ya trae estilos inline;
+    esto agrega pulido visual general)
+================================ */
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 1050;
+}
+.modal-card{
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  padding: 1.25rem;
+  animation: modalIn .14s ease-out;
+}
+@keyframes modalIn{
+  from{ transform: translateY(6px); opacity: .7; }
+  to{ transform: translateY(0); opacity: 1; }
+}
+
+/* ================================
+   Responsivo
+================================ */
+@media (max-width: 576px){
+  .container{ padding-top: .75rem; }
+  .btn{ padding: .5rem .75rem; }
+  .card .list-unstyled li{ font-size: .95rem; }
+}
